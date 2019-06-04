@@ -1,0 +1,49 @@
+<form [formGroup]="form">
+  <div class="row" *ngIf="showError">
+    <div class="col-md-12">
+      <div class="alert alert-danger" role="alert">
+        Your form is invalid.
+      </div>
+    </div>
+  </div>
+  
+  <div class="row" *ngIf="showSuccess">
+    <div class="col-md-12">
+      <div class="alert alert-success" role="alert">
+        <pre>{{ form.value | json }}</pre>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-group">
+        <label for="txtCPF">CPF</label>
+        <input type="text" class="form-control" id="txtCPF" aria-describedby="cpfHelp" placeholder="Enter your CPF" formControlName="CPF" #cpf>
+        <small id="cpfHelp" class="form-text text-muted">Type a valid CPF.</small>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="form-group">
+        <label for="txtPhone">Phone Number</label>
+        <input type="text" class="form-control" id="txtPhone" aria-describedby="phoneHelp" placeholder="Enter your phone number" formControlName="Phone" #phone>
+        <small id="phoneHelp" class="form-text text-muted">Type a valid phone number.</small>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="form-group">
+        <label for="txtPhone">E-mail</label>
+        <input type="text" class="form-control" id="txtEmail" aria-describedby="emailHelp" placeholder="Enter your e-mail address" formControlName="Email">
+        <small id="emailHelp" class="form-text text-muted">Type a valid e-mail address.</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <button type="button" class="btn btn-primary" (click)="submit()">Submit</button>
+    </div>
+  </div>
+</form>
